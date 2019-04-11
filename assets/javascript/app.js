@@ -2,26 +2,6 @@ window.onload = function () {
 
   "use strict"; //Strict mode to avoid unreported errors
 
-  //will use this later for the timer
-  function timeConverter(t) {
-
-    var minutes = Math.floor(t / 60);
-    var seconds = t - (minutes * 60);
-
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-
-    if (minutes === 0) {
-      minutes = "00";
-    }
-    else if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-
-    return minutes + ":" + seconds;
-  }
-
   var questions = [
     "What 1992 movie based on a Stephen King novel featured a yard worker who became a cyber-villain?",
     'Who played the character "Morpheus" in the 1999 movie "The Matrix"?',
@@ -30,13 +10,8 @@ window.onload = function () {
   ];
   var options = [
     ["Lawnmower Man", "Leafblower Man", "Weedwacker Man", "Groundskeeper Man"],
-    [
-      "Cuba Gooding Jr",
-      "Wesley Snipes",
-      "Lawrence Fishburne",
-      "Samuel L. Jackson"
-    ],
-    ["Seattle", "Chicago", "Detroit", "Que"],
+    ["Cuba Gooding Jr", "Wesley Snipes", "Lawrence Fishburne", "Samuel L. Jackson"],
+    ["Seattle", "Chicago", "Detroit", "Phoenix"],
     ["Tron", "Pron", "Apron", "Tran"]
   ];
   var answers = [0, 2, 0, 0];
@@ -66,44 +41,43 @@ window.onload = function () {
     $("#options-view").append(a)
   }
 
-  //Start a timer
-  $("#timer").text("00:15");
+  //A few functions to track time
 
-  var intervalId;
-  var clockRunning = false;
-  var time = 15;
-
-  var start = function () {
-
-    // DONE: Use setInterval to start the count here and set the clock to running.
-    if (!clockRunning) {
-      intervalId = setInterval(count, 1000);
-      clockRunning = true;
+  function timeConverter(t) {
+    var minutes = Math.floor(t / 60);
+    var seconds = t - (minutes * 60);
+    if (seconds < 10) {
+      seconds = "0" + seconds;
     }
+    if (minutes === 0) {
+      minutes = "00";
+    }
+    else if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    return minutes + ":" + seconds;
   }
 
-  function count() {
+  var intervalId;
+  var time;
+
+  var start = function () {
+    time = 16;
+    $("#display").text("00:16")
+    intervalId = setInterval(count, 1000);
+  }
+  var count = function () {
     time--;
     console.log(time);
+    if (time === 0) {
+      clearInterval(intervalId);
+    }
     //calling the timeConverter function from earlier
     var converted = timeConverter(time);
     $("#timer").text(converted);
-
   }
-  function reset() {
-    clockRunning = false;
-    intervalId = setInterval(count, 1000);
-    time = 15;
-    $("#display").text("00:15")
-  };
 
   start();
-
-
-  // if (time === 0) {
-  //   reset();
-  //   start();
-  // };
 
 
 
