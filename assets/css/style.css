@@ -14,3 +14,7 @@ h1, .footer {
 .footer {
     color: white;
 }
+#timer {
+    font-size: 25pt;
+    text-align: center;
+}

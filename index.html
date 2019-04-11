@@ -17,24 +17,40 @@
 </head>
 
 <body>
-        <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-2"></div>
-        
-                    <div class="col-lg-8" id="center-column">
-                        <br>
-                        <h1>Hacker Movie Trivia Game</h1>
-                        <br>
-        
-                    <div class="col-lg-2"></div>
-                </div>
-            </div>
-    <div class="footer">
-        <br>
-        Copyright
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2"></div>
 
-    </div>
-    <script src="./assets/javascript/app.js"></script>
+            <div class="col-lg-8" id="center-column">
+                <br>
+                <h1>Hacker Movie Trivia Game</h1>
+                <br>
+                <!-- ticking time will display in here -->
+                <div id="timer"></div>
+                <br>
+                <!-- a card class to hold the image and question -->
+                <div class="card" style="width: auto;">
+                    <img class="card-img-top" src="./assets/images/lawnmower.jpg" alt="Movie Image">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title"></h5> -->
+                    </div>
+                </div>
+
+                <!-- options will be dynamically added in here -->
+                <br>
+
+                <div id="options-view"></div>
+                <br>
+
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+        <div class="footer">
+            <br>
+            Copyright
+
+        </div>
+        <script src="./assets/javascript/app.js"></script>
 
 </body>
 
