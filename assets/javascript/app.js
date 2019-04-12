@@ -67,20 +67,26 @@ window.onload = function () {
   var endGame = function(){
     // alert("Time's up!");  //TODO uncomment later
 
-    var parent = document.getElementById("parent-of-column");
-    var child = document.getElementById("center-column");
-    parent.removeChild(child);
+    var parent = document.getElementById("parent-of-columns");
+    var child2 = document.getElementById("center-column");
+    var child3 = document.getElementById("right-column");
+    parent.removeChild(child2);
+    parent.removeChild(child3); //remove the right column for centering
 
 
 
     var scoreScreen = document.createElement("div");
     scoreScreen.setAttribute("class", "col-lg-8 rounded");
-    $(scoreScreen).text("Score Screen");
+    scoreScreen.setAttribute("id", "score-screen");
+    scoreScreen.innerHTML = "Score Screen <p> You got X out of 4 correct!</p>"
+
+    scoreScreen.setAttribute("text", "The Score");
     console.log(scoreScreen);
     
+
+    $(".footer").remove();
     parent.appendChild(scoreScreen);
 
-    // element.appendChild(scoreScreen);
 
 
   }
