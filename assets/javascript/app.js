@@ -32,8 +32,8 @@ window.onload = function () {
   var count = function () {
     time--;
     console.log(time);
-    if (time === 0) { 
-      clearInterval(intervalId); 
+    if (time === 0) {
+      clearInterval(intervalId);
       endGame();
 
     }
@@ -43,46 +43,68 @@ window.onload = function () {
 
   start();
 
-  $(document).on("click", ".group1", function(){
+  $(document).on("click", ".group1", function () {
     console.log($(this).text());
     playerAnswers[0] = ($(this).text());
     console.log(playerAnswers);
   })
-  $(document).on("click", ".group2", function(){
+  $(document).on("click", ".group2", function () {
     console.log($(this).text());
     playerAnswers[1] = ($(this).text());
     console.log(playerAnswers);
   })
-  $(document).on("click", ".group3", function(){
+  $(document).on("click", ".group3", function () {
     console.log($(this).text());
     playerAnswers[2] = ($(this).text());
     console.log(playerAnswers);
   })
-  $(document).on("click", ".group4", function(){
+  $(document).on("click", ".group4", function () {
     console.log($(this).text());
     playerAnswers[3] = ($(this).text());
     console.log(playerAnswers);
   })
 
-  var endGame = function(){
+  var endGame = function () {
     // alert("Time's up!");  //TODO uncomment later
 
+    //clear 2 of the columns
     var parent = document.getElementById("parent-of-columns");
     var child2 = document.getElementById("center-column");
     var child3 = document.getElementById("right-column");
     parent.removeChild(child2);
     parent.removeChild(child3); //remove the right column for centering
 
+    //tally the score
 
+    var playerScore = 0;
+
+    for (var i = 0; i < playerAnswers.length; i++) {
+      switch (playerAnswers[i]) {
+        case "Lawnmower Man":
+          playerScore++;
+          break;
+        case "Seattle":
+          playerScore++;
+        case "Lawrence Fishburne":
+          playerScore++;
+        case "Tron":
+          playerScore++;
+        default:
+          break;
+      }
+    }
+    console.log("Score: " + playerScore);
+  
+    //creating the score screen
 
     var scoreScreen = document.createElement("div");
     scoreScreen.setAttribute("class", "col-lg-8 rounded");
     scoreScreen.setAttribute("id", "score-screen");
-    scoreScreen.innerHTML = "Score Screen <p> You got X out of 4 correct!</p>"
+    scoreScreen.innerHTML = "Score Screen <p> You got " + playerScore.toString() + " out of 4 correct!</p>";
+    var visibleScore = document.createElement("span");
 
-    scoreScreen.setAttribute("text", "The Score");
     console.log(scoreScreen);
-    
+
 
     $(".footer").remove();
     parent.appendChild(scoreScreen);
