@@ -21,6 +21,10 @@ h1, .footer {
     margin: auto;
 }
 
+.col-lg-8 {
+    background: green;
+}
+
 #timer {
     margin: auto;
     font-size: 25pt;
