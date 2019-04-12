@@ -11,35 +11,41 @@ window.onload = function () {
   var options = [
     ["Lawnmower Man", "Leafblower Man", "Weedwacker Man", "Groundskeeper Man"],
     ["Cuba Gooding Jr", "Wesley Snipes", "Lawrence Fishburne", "Samuel L. Jackson"],
-    ["Seattle", "Chicago", "Detroit", "Phoenix"],
+    ["Seattle", "Los Angeles", "Detroit", "Phoenix"],
     ["Tron", "Pron", "Apron", "Tran"]
   ];
   var answers = [0, 2, 0, 0];
 
-  //Sets the image above the question
+  //Sets the movie image above the question
 
-  // var img = $('<img src="./assets/images/lawnmower.jpg" alt="The Man"></img>');
-  // $(".card-img-top").append(img);
+  // var myImage = $("<img>");
+  // myImage.attr("src", "./assets/images/lawnmower.jpg");
+  // myImage.attr("alt", "The Man");
+  // $(".card-img-top").append(myImage);
 
 
-  //Makes the question button
-  var q = $("<button>");
-  q.addClass("btn btn-light btn-block disabled");
-  q.text(questions[0]);
-  $(".card-body").append(q)
+  // //Makes the question button
+  // var q = $("<button>");
+  // q.addClass("btn btn-light btn-block disabled");
+  // q.text(questions[0]);
+  // $(".card-body").append(q)
 
-  //Makes the 4 options buttons
+  // //Makes the 4 options buttons
 
-  for (var i = 0; i < options.length; i++) {
-    var a = $("<button>");
-    a.addClass("btn btn-dark btn-block rounded-pill");
+  // for (var i = 0; i < options.length; i++) {
+  //   var o = $("<button>");
+  //   o.addClass("btn btn-dark btn-block rounded-pill");
 
-    a.iscorrect = true; //TODO make this smarter by checking for true value
-    console.log(a.iscorrect);
-    a.text(options[0][i]);
+  //   if (options[0][i] === answers[i]) {
+  //     o.iscorrect = true;
+  //   }
+  //   else {o.iscorrect = false}
 
-    $("#options-view").append(a)
-  }
+  //   console.log(o.iscorrect);
+  //   o.text(options[0][i]);
+
+  //   $("#options-view").append(o)
+  // }
 
   //A few functions to track time
 
@@ -62,17 +68,14 @@ window.onload = function () {
   var time;
 
   var start = function () {
-    time = 16;
-    $("#display").text("00:16")
+    time = 15;
+    $("#display").text("00:15")
     intervalId = setInterval(count, 1000);
   }
   var count = function () {
     time--;
     console.log(time);
-    if (time === 0) {
-      clearInterval(intervalId);
-    }
-    //calling the timeConverter function from earlier
+    if (time === 0) { clearInterval(intervalId); }
     var converted = timeConverter(time);
     $("#timer").text(converted);
   }
@@ -80,12 +83,15 @@ window.onload = function () {
   start();
 
 
-
-
-
-
-
   //TODO Detect user click on a trivia answer
+
+  // (".rounded-pill").on("click", decideCorrect());
+
+  // var decideCorrect = function() {
+
+
+  // }
+
 
   //TODO check if answer is correct
 

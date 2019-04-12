@@ -6,7 +6,6 @@ body {
 
 #center-column {
     background-color: rgb(31, 175, 31);
-    /* background-image: url(../images/matrix.gif); */
 }
 
 h1, .footer {
@@ -16,7 +15,18 @@ h1, .footer {
 .footer {
     color: white;
 }
+
+.rounded-pill {
+    width: auto;
+    margin: auto;
+}
+
 #timer {
+    margin: auto;
     font-size: 25pt;
     text-align: center;
+    width: 200px;
+    border-width: 2px;
+    border-color: black;
+    border-style: ridge;
 }
