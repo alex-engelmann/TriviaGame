@@ -88,7 +88,7 @@ window.onload = function () {
           break;
       }
     }
-    
+
 
     alert("Time's up!");
 
@@ -104,24 +104,23 @@ window.onload = function () {
     var scoreScreen = document.createElement("div");
     scoreScreen.setAttribute("class", "col-lg-8 rounded");
     scoreScreen.setAttribute("id", "score-screen");
-    scoreScreen.innerHTML = 
-    
-    "Score Screen" +
-    "<p> You got " + playerScore.toString() + " out of 4 correct!</p>" + 
+    scoreScreen.innerHTML =
 
-    '<div class="container"><table class="table table-hover table-dark" ><thead><tr><th scope="col">Question</th><th scope="col">Correct Answer</th></tr></thead><tbody><tr><th scope="row">1</th><td>Lawnmower Man</td></tr><tr><th scope="row">2</th><td>Lawrence Fishburne</td></tr><tr><th scope="row">3</th><td>Seattle</td></tr><tr><th scope="row">4</th><td>Tron</td></tr></tbody></table ></div > ' +
+      "Score Screen" +
+      "<p> You got " + playerScore.toString() + " out of 4 correct!</p>" +
 
-    '<button type="button" class="btn btn-dark btn-block rounded-pill">Play Again?</button>'
-    
-    ;
+      '<div class="container"><table class="table table-hover table-dark" ><thead><tr><th scope="col">Question</th><th scope="col">Correct Answer</th></tr></thead><tbody><tr><th scope="row">1</th><td>Lawnmower Man</td></tr><tr><th scope="row">2</th><td>Lawrence Fishburne</td></tr><tr><th scope="row">3</th><td>Seattle</td></tr><tr><th scope="row">4</th><td>Tron</td></tr></tbody></table ></div > ' +
+
+      '<button type="button" class="restart btn btn-dark btn-block rounded-pill">Play Again?</button><br>'
+
+      ;
     console.log(scoreScreen);
 
 
     $(".footer").remove();
     parent.appendChild(scoreScreen);
 
-
-
   }
-
+  $(document).on("click", ".restart", function () {
+    location.reload();})
 }
