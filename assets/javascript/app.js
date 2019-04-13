@@ -114,11 +114,16 @@ window.onload = function () {
       '<button type="button" class="restart btn btn-dark btn-block rounded-pill">Play Again?</button><br>'
 
       ;
-    console.log(scoreScreen);
+    
+    var rightColumn = document.createElement("div");
+    rightColumn.setAttribute("class", "col-lg-2");
+    rightColumn.setAttribute("id", "right-column");
+
 
 
     $(".footer").remove();
     parent.appendChild(scoreScreen);
+    parent.appendChild(rightColumn);
 
   }
   $(document).on("click", ".restart", function () {
