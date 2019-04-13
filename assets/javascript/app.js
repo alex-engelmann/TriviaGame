@@ -3,6 +3,7 @@ window.onload = function () {
   "use strict"; //Strict mode to avoid unreported errors
 
   var playerAnswers = [];
+  var playerScore = 0;
 
   //A few functions to track time
 
@@ -25,13 +26,13 @@ window.onload = function () {
   var time;
 
   var start = function () {
-    time = 5; //TODO take this back to 60 once testing is done
+    time = 10; //TODO take this back to 60 once testing is done
     $("#display").text("01:00")
     intervalId = setInterval(count, 1000);
   }
   var count = function () {
     time--;
-    console.log(time);
+    // console.log(time);
     if (time === 0) {
       clearInterval(intervalId);
       endGame();
@@ -65,7 +66,33 @@ window.onload = function () {
   })
 
   var endGame = function () {
-    // alert("Time's up!");  //TODO uncomment later
+    //calculate player score before anything else
+
+    for (var i = 0; i < playerAnswers.length; i++) {
+      console.log("Score: " + playerScore);
+      debugger;
+      switch (playerAnswers[i]) {
+        case null:
+          break;
+        case "Lawnmower Man":
+          playerScore++;
+          break;
+        case "Seattle":
+          playerScore++;
+          break;
+        case "Lawrence Fishburne":
+          playerScore++;
+          break;
+        case "Tron":
+          playerScore++;
+          break;
+        default:
+          break;
+      }
+    }
+    
+
+    alert("Time's up!");
 
     //clear 2 of the columns
     var parent = document.getElementById("parent-of-columns");
@@ -73,27 +100,6 @@ window.onload = function () {
     var child3 = document.getElementById("right-column");
     parent.removeChild(child2);
     parent.removeChild(child3); //remove the right column for centering
-
-    //tally the score
-
-    var playerScore = 0;
-
-    for (var i = 0; i < playerAnswers.length; i++) {
-      switch (playerAnswers[i]) {
-        case "Lawnmower Man":
-          playerScore++;
-          break;
-        case "Seattle":
-          playerScore++;
-        case "Lawrence Fishburne":
-          playerScore++;
-        case "Tron":
-          playerScore++;
-        default:
-          break;
-      }
-    }
-    console.log("Score: " + playerScore);
 
     //creating the score screen
 
@@ -103,15 +109,15 @@ window.onload = function () {
     scoreScreen.innerHTML = "Score Screen <p> You got " + playerScore.toString() + " out of 4 correct!</p>" +
 
       '<div class="container"><table class="table table-hover table-dark" ><thead><tr><th scope="col">Question</th><th scope="col">Correct Answer</th></tr></thead><tbody><tr><th scope="row">1</th><td>Lawnmower Man</td></tr><tr><th scope="row">2</th><td>Lawrence Fishburne</td></tr><tr><th scope="row">3</th><td>Seattle</td></tr><tr><th scope="row">4</th><td>Tron</td></tr></tbody></table ></div > '
-    ;
-  console.log(scoreScreen);
+      ;
+    console.log(scoreScreen);
 
 
-  $(".footer").remove();
-  parent.appendChild(scoreScreen);
+    $(".footer").remove();
+    parent.appendChild(scoreScreen);
 
 
 
-}
+  }
 
 }

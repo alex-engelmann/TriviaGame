@@ -4,15 +4,13 @@ body {
     background-image: url(../images/matrix.gif);
 }
 
-#center-column {
+#center-column, #score-screen {
     background-color: rgb(31, 175, 31);
     text-align: center;
     font-size: 25pt;
 }
 
 #score-screen {
-    background-color: rgb(31, 175, 31);
-    text-align: center;
     font-size: 50pt;
 }
 
