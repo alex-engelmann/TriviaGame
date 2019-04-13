@@ -4,7 +4,7 @@ This game has 4 trivia questions about hacker movies.  The user has 1 minute to 
 
 ## Contributing
 
-Not currently looking for more contributors
+Not currently looking for more contributors.
 
 ## Feedback
 
