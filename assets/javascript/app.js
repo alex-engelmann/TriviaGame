@@ -88,8 +88,6 @@ window.onload = function () {
           break;
       }
     }
-
-
     alert("Time's up!");
 
     //clear 2 of the columns
@@ -128,4 +126,6 @@ window.onload = function () {
   }
   $(document).on("click", ".restart", function () {
     location.reload();})
+    $(document).on("click", ".submit", function () {
+      endGame();})
 }
